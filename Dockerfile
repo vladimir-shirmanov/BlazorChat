@@ -17,4 +17,4 @@ RUN dotnet publish "BlazorChat.csproj" -c Release -o /app/publish /p:UseAppHost=
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BlazorChat.dll"]
+ENTRYPOINT ["dotnet", "BlazorChat.dll", "--urls", "http://0.0.0.0"]
